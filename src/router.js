@@ -7,6 +7,8 @@ const {
 const router = (req, res) => {
   const endpoint = req.url;
   const { method } = req;
+  console.log(endpoint);
+  console.log(method);
   if (endpoint === '/') {
     handleHomePage(req, res);
   } else if (endpoint === '/getposts') {
@@ -15,7 +17,7 @@ const router = (req, res) => {
     logout(req, res);
   } else if (endpoint === '/addpost' && method === 'POST') {
     handleAddPost(req, res);
-  } else if (endpoint === '/deletepost' && method === 'DELETE') {
+  } else if (endpoint.includes('/deletepost') && method === 'GET') { // must change it to delete
     handleDeletePost(req, res);
   } else if (endpoint === '/signup' && method === 'GET') {
     signupPage(req, res);
