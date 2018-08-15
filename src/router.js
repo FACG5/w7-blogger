@@ -12,9 +12,9 @@ const router = (req, res) => {
     handleQuery(req, res);
   } else if (endpoint === '/logout') {
     logout(req, res);
-  } else if (endpoint === '/addpost') {
+  } else if (endpoint === '/addpost' && method === 'POST') {
     handleAddPost(req, res);
-  } else if (endpoint === '/deletepost') {
+  } else if (endpoint === '/deletepost' && method === 'DELETE') {
     handleDeletePost(req, res);
   } else if (endpoint === '/signup' && method === 'GET') {
     signupPage(req, res);
