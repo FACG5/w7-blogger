@@ -2,6 +2,8 @@
 const { parse } = require('cookie');
 const { verify } = require('jsonwebtoken');
 
+const SECRET = 'poiugyfguhijokpkoihugyfyguhijo';
+
 const error401 = (req, res) => {
   const message = '<h1>UNAUTHORIZED ERROR</h1>';
   res.writeHead(401, { 'content-type': 'text/html' });
@@ -14,7 +16,7 @@ const isAuth = (req, res, cb) => {
   if (!jwt) return error401(req, res);
 
   verify(jwt, SECRET, (err, jwt) => {
-    if (err) error401(req, res);
+    if (err) cb(false);
     else {
       cb(true);
     }
