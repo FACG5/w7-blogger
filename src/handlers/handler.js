@@ -1,10 +1,10 @@
 const {
-  handleHomePage, handlePageNotFound, signupPage, loginPage,
+  handleHomePage, handlePageNotFound, signupPage, loginPage, addpost,
 } = require('./homePage.js');
 
 
 module.exports = {
-
+  addpost,
   handleHomePage,
   handlePageNotFound,
 
@@ -14,10 +14,6 @@ module.exports = {
 };
 
 /*
-  handleDeletePost,
-  handleStaticFiles,
-  handleQuery,
-  handleAddPost,
   signup,
   login,
   logout,
