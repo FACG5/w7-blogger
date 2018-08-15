@@ -3,6 +3,7 @@ const {
 } = require('./homePage.js');
 const handleStaticFiles = require('./handleStaticFiles.js');
 const { isAuth, error401 } = require('./isAuth.js');
+const {login } = require ('./login.js');
 
 module.exports = {
 
@@ -12,6 +13,7 @@ module.exports = {
   signupPage,
   loginPage,
   isAuth,
+  login,
   error401,
 };
 

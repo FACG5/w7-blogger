@@ -3,6 +3,7 @@ const {
   handlePageNotFound, signup, login, signupPage, loginPage, logout, checkAuth,
 } = require('./handlers/handler.js');
 
+
 const router = (req, res) => {
   const endpoint = req.url;
   const { method } = req;
