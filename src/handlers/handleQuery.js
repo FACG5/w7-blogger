@@ -2,7 +2,7 @@ const { getPosts } = require('./../queries/getData.js');
 
 function handleQuery(req, res) {
   getPosts((err, obj) => {
-    if (err) {
+    if (err) {      
       console.log(err);
     }
     res.writeHead(200, {
