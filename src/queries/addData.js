@@ -1,5 +1,6 @@
 const dbConnection = require('../database/db_connections.js');
-const {hashPassword}=require('./passwords')
+const { hashPassword } = require('../handlers/passwords.js');
+
 const addUser = (user, cb) => {
   dbConnection.query(
     {
