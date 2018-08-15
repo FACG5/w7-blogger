@@ -1,4 +1,4 @@
-const { getPosts } = require('./../queries/deleteData.js');
+const { getPosts } = require('./../queries/getData.js');
 
 function handleQuery(req, res) {
   getPosts((err, obj) => {
