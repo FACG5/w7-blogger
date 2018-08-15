@@ -1,7 +1,9 @@
 const {
   handleDeletePost, handleStaticFiles, handleQuery, handleAddPost, handleHomePage,
-  handlePageNotFound, signup, login, signupPage, loginPage, logout, checkAuth,
+  handlePageNotFound, signup, signupPage, loginPage, logout, checkAuth,
 } = require('./handlers/handler.js');
+
+const {login } = require ('./handlers/login.js');
 
 const router = (req, res) => {
   const endpoint = req.url;

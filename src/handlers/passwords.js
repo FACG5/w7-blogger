@@ -10,36 +10,37 @@ const hashPassword = (password, callback) => {
       if (err) {
         callback({
           error: 'Erorr during generating salt'
-        })
-      } else {
+        });
+      } else 
+      {
         bcrypt.hash(password, salt, (err, hash) => {
-          if (err) callback({
-            error: 'Erorr during generating hash'
-          });
-          else callback(null, hash);
+          if(err) {
+            callback({
+              error: 'Erorr during generating hash'
+            });
+          } 
+          else{
+            callback(null, hash);
+          } 
           // Store hash in your password DB.
         });
+        };
       });
-
-
-  }
-
-
-};
+  };
 
 const comparePasswords = (password, hashedPassword, callback) => {
   bcrypt.compare(password, hashedPassword, (err, res) => {
-    if (err) callback({
-      error: 'Erorr during comparing passwords'
-    });
-    else callback(null, res)
+    if (err){
+      callback({
+        error: 'Erorr during comparing passwords'
+      });
+    } 
+    else {
+      callback(null, res)
+    }
     // res === true
   });
-
-
 };
-
 module.exports = {
   comparePasswords,
-  hashPassword
-};
+  hashPassword };
