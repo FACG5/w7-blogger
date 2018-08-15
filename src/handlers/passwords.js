@@ -1,8 +1,3 @@
-"use strict";
-/* use bcrypt to hash the password and return it asynchronously
- *use bcrypt to compare the passwords and return a boolean asynchronously
- */
-
 const bcrypt = require("bcryptjs");
 
 const hashPassword = (password, callback) => {
