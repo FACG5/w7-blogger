@@ -3,6 +3,7 @@ const {
   handlePageNotFound, signup, login, signupPage, loginPage, logout, checkAuth,
 } = require('./handlers/handler.js');
 
+
 const router = (req, res) => {
   const endpoint = req.url;
   const { method } = req;
@@ -12,9 +13,9 @@ const router = (req, res) => {
     handleQuery(req, res);
   } else if (endpoint === '/logout') {
     logout(req, res);
-  } else if (endpoint === '/addpost') {
+  } else if (endpoint === '/addpost' && method === 'POST') {
     handleAddPost(req, res);
-  } else if (endpoint === '/deletepost') {
+  } else if (endpoint === '/deletepost' && method === 'DELETE') {
     handleDeletePost(req, res);
   } else if (endpoint === '/signup' && method === 'GET') {
     signupPage(req, res);

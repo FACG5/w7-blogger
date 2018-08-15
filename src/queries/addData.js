@@ -5,6 +5,7 @@ const addUser = (user, cb) => {
     {
       text: 'INSERT INTO users (name, email, password) VALUES ($1,$2,$3)',
       values: [user.name,user.email,hashPassword(user.password)],
+
     }, (err, res) => {
       if (err) {
         cb(err);

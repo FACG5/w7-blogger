@@ -18,7 +18,7 @@ function handleStaticFiles(req, res) {
   res.writeHead(200, {
     'content-type': contentType[extention],
   });
-  fs.readFile(path.join(__dirname, '..','..', endponit), (err, file) => {
+  fs.readFile(path.join(__dirname, '..', '..', endponit), (err, file) => {
     if (err) {
       res.end(err.message);
     } else {
@@ -27,4 +27,4 @@ function handleStaticFiles(req, res) {
   });
 }
 
-module.exports =  handleStaticFiles;
+module.exports = handleStaticFiles;
