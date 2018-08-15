@@ -1,44 +1,69 @@
-fetch(null, 'get', '/', view);
 
+fetch(null,'GET','/checkauth',(err, obj) => {
+    if(err){
+        console.log(err);
+    }
+    console.log(typeof obj);
+    if(obj){
+        console.log(obj);
+    }else{
+        console.log(obj);
+    }
+});
+
+fetch(null, 'get', '/getposts', view);
 function view(err, obj) {
+    console.log(obj);
   const object = JSON.parse(obj);
+  console.log(object);
+  console.log('gdfg')
   if (object.err) {
     console.log('error');
   }
 
-  const arr = object.data;
-  console.log('arr.length', arr);
   const content = document.getElementsByClassName('posts')[0];
   // CREATE ELEMENTS
-  arr.forEach((element) => {
-    const post = document.createElement('div');
+  object.forEach((element) => {
+    let post = document.createElement('div');
     post.classList = 'post';
 
-    const postContent = document.createElement('div');
+    let postContent = document.createElement('div');
+    console.log(postContent)
     postContent.classList = 'post-content';
-
-    const postTitle = document.createElement('h3');
+    let postTitle = document.createElement('h3');
     postTitle.classList = 'post-title';
     postTitle.textContent = element.post_title;
 
-    const postBody = document.createElement('p');
+    let postBody = document.createElement('p');
     postBody.classList = 'post-body';
     postBody.textContent = element.post_body;
 
-    const postDetails = document.createElement('div');
+    let postDetails = document.createElement('div');
     postDetails.classList = 'post-details';
 
-    const owner = document.createElement('span');
+    let owner = document.createElement('span');
     owner.classList = 'owner';
     owner.textContent = element.posted_by;
 
-    const date = document.createElement('span');
+    let date = document.createElement('span');
     date.classList = 'date';
     date.textContent = element.date;
 
-    const time = document.createElement('span');
+    let time = document.createElement('span');
     time.classList = 'time';
     time.textContent = element.time;
+    let line = document.createElement('hr');
+
+    postContent.appendChild(postTitle);
+    postContent.appendChild(postBody);
+    postDetails.appendChild(date);
+    postDetails.appendChild(time);
+    // postDetails.appendChild(remove);
+    post.appendChild(postContent);
+    post.appendChild(postDetails);
+    content.appendChild(post);
+    content.appendChild(line);
+
 
     // const remove = document.createElement('span');
     // remove.classList = 'fas fa-trash';
@@ -48,15 +73,7 @@ function view(err, obj) {
     //     window.location = '/';
     //   });
   });
-  const line = document.createElement('hr');
+ 
   // APPEND CHILDS
-  postContent.appendChild(postTitle);
-  postContent.appendChild(postBody);
-  postDetails.appendChild(date);
-  postDetails.appendChild(time);
-  postDetails.appendChild(remove);
-  post.appendChild(postContent);
-  post.appendChild(postDetails);
-  content.appendChild(post);
-  content.appendChild(line);
+
 }
