@@ -13,6 +13,7 @@ const hashPassword = (password, callback) => {
             error: 'Erorr during generating hash',
           });
         } else {
+          
           callback(null, hash);
         }
         // Store hash in your password DB.

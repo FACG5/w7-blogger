@@ -1,11 +1,11 @@
 const dbConnection = require('../database/db_connections.js');
-const { hashPassword } = require('../handlers/passwords.js');
+
 
 const addUser = (user, cb) => {
   dbConnection.query(
     {
       text: 'INSERT INTO users (name, email, password) VALUES ($1,$2,$3)',
-      values: [user.name, user.email, hashPassword(user.password)],
+      values: [user.name, user.email, user.password],
 
     }, (err, res) => {
       if (err) {
@@ -24,13 +24,13 @@ const addPost = (post, cb) => {
       values: [post.post_title, post.post_body, post.user_id],
     }, (err, res) => {
       if (err) {
-          cb(err);
-        } else {
-          cb(null, res.rows);
-        }
-      },
-    );
-  };
+        cb(err);
+      } else {
+        cb(null, res.rows);
+      }
+    },
+  );
+};
 
 module.exports = {
   addUser,
