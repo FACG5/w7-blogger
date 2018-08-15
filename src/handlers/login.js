@@ -29,13 +29,16 @@ const login = (req, res) => {
           if (err) {
             console.log(err, 'user not exist or there is an error');
           } else if (isAuh) {
+            console.log('is auth',isAuh);
             const user = {
               email: enteredData.email,
               rule: enteredData.rule,
               user_id: result[0].user_id,
             };
+            console.log('user', user);
             // Create  Token
             const loginJWT = sign(user, process.env.SECRET);
+
             res.setHeader('Set-Cookie', `jwt=${loginJWT};`);
             res.writeHead(302, {
               Location: '/',

@@ -47,14 +47,15 @@
             </div>
             <div class="addSection">
                 <h3>Add New Post</h3>
-                <form action="POST" class="addpost">
+                <form action="/addpost" method="POST" class="addpost">
                     <label class="addlable" for="title">Title: </label>
-                    <input  class="addinput" placeholder="post's title" id="title" type="text" name="title" class="form-input">
+                    <input  class="addinput"  placeholder="post's title" id="title" type="text" name="post_title" class="form-input">
                     <label  class="addlable" for="body">Body: </label>
-                    <textarea ass="addinput" placeholder="post's body" id="body" type="body" name="body" class="form-input"></textarea>
+                    <textarea class="addinput" name="post_body" placeholder="post's body" id="body" type="body" name="body" class="form-input"></textarea>
                     <label>.</label>
                     <button id="add" class="addbtn form-input">add post</button>
                 </form>
+    
             </div>
         </section>
     </main>
@@ -63,7 +64,7 @@
             copyright &copy; 2018 | Othman, Ali, Salwa & Asala
         </address>
     </footer>
-    <script src="/public/js/dom.js"></script>
-    <script src="/public/js/fetch.js"></script>
+    <script src="public/js/fetch.js"></script>
+    <script src="public/js/dom.js"></script>
 </body>
 </html>
