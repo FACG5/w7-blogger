@@ -28,11 +28,26 @@ const getUserPosts = (user_id, cb) => {
   });
 };
 
-// GET user details for specific user ...
-const getUserData = (user_email, cb) => {
+
+const getUserEmail = (user_email, cb) => {
   const sql = {
-    text: 'SELECT name, email, password FROM users WHERE email=$1',
+    text: 'SELECT name, user_id, rule, password FROM users WHERE email=$1',
     values: [user_email],
+  };
+  dbConnection.query(sql, (err, res) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, res.rows);
+    }
+  });
+};
+
+// GET user details for specific user ...
+const getUserData = (user_id, cb) => {
+  const sql = {
+    text: 'SELECT user_id, name, email, password FROM users WHERE user_id=$1',
+    values: [user_id],
   };
   dbConnection.query(sql, (err, res) => {
     if (err) {
@@ -47,4 +62,5 @@ module.exports = {
   getPosts,
   getUserPosts,
   getUserData,
+  getUserEmail,
 };
