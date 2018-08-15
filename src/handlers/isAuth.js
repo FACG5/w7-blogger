@@ -2,7 +2,7 @@
 const { parse } = require('cookie');
 const { verify } = require('jsonwebtoken');
 
-const SECRET = 'poiugyfguhijokpkoihugyfyguhijo';
+ const SECRET = process.env.SECRET;
 
 const error401 = (req, res) => {
   const message = '<h1>UNAUTHORIZED ERROR</h1>';
@@ -11,9 +11,11 @@ const error401 = (req, res) => {
 };
 
 const isAuth = (req, res, cb) => {
-  if(!req.header) return cb(false);
-  if (!req.header.cookie) return cb(false);
+  console.log(req.header);
+  if (!req.headers) return cb(false);
+  if (!req.headers.cookie) return cb(false);
   const { jwt } = parse(req.headers.cookie);
+  console.log('jwt ?',jwt);
   if (!jwt) return cb(false);
     // so this is not ok return error401(req, res);
   verify(jwt, SECRET, (err, jwt) => {
