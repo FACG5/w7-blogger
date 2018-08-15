@@ -1,5 +1,5 @@
 const {
-  handleDeletePost, handleStaticFiles, handleQuery, handleAddPost, handleHomePage,
+  handleDeletePost, handleStaticFiles, handleQuery, handleAddPost, handleHomePage,isAuth,
   handlePageNotFound, signup, login, signupPage, loginPage, logout, checkAuth,
 } = require('./handlers/handler.js');
 

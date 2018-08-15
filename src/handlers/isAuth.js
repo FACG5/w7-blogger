@@ -11,10 +11,11 @@ const error401 = (req, res) => {
 };
 
 const isAuth = (req, res, cb) => {
-  if (!req.header.cookie) return error401(req, res);
+  if(!req.header) return cb(false);
+  if (!req.header.cookie) return cb(false);
   const { jwt } = parse(req.headers.cookie);
-  if (!jwt) return error401(req, res);
-
+  if (!jwt) return cb(false);
+    // so this is not ok return error401(req, res);
   verify(jwt, SECRET, (err, jwt) => {
     if (err) cb(false);
     else {
