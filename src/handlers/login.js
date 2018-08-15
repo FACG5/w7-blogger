@@ -2,7 +2,7 @@ require('env2')('config.env');
 const queryString = require('querystring');
 const { sign } = require('jsonwebtoken');
 const hashed = require('./passwords.js');
-const getData = require('../queries/getData');
+const {getUserEmail, getUserData } = require('../queries/getData');
 
 const login = (req, res) => {
   let data = '';
@@ -13,7 +13,7 @@ const login = (req, res) => {
     const enteredData = queryString.parse(data);
     console.log("enteredData=>> ",enteredData);
 
-    getData.getUserData(enteredData.email, (err, result) => {
+    getUserEmail(enteredData.email, (err, result) => {
       if (err) {
         return console.log('error on finding the user', err);
       }
@@ -32,7 +32,7 @@ const login = (req, res) => {
             const user = {
               email: enteredData.email,
               rule: enteredData.rule,
-              id: result[0].id,
+              user_id: result[0].user_id,
             };
             // Create  Token
             const loginJWT = sign(user, process.env.SECRET);
