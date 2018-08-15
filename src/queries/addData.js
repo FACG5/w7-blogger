@@ -4,7 +4,7 @@ const addUser = (user, cb) => {
   dbConnection.query(
     {
       text: 'INSERT INTO users (name, email, password) VALUES ($1,$2,$3)',
-      values: [user.name,user.email,user.password],
+      values: [user.name, user.email, user.password],
     }, (err, res) => {
       if (err) {
         cb(err);

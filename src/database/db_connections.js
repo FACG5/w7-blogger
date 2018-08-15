@@ -15,6 +15,6 @@ const options = {
   database: params.pathname.split('/')[1],
   max: process.env.DB_MAX_CONNICTIONS || 2,
   ssl: params.hostname !== 'localhost',
-}; 
+};
 
 module.exports = new Pool(options);
