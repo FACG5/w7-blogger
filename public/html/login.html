@@ -1,6 +1,45 @@
 
-<form method="POST" action="/login">
-    <input type="text" name="email" placeholder="email" required>
-    <input type="password" name="password" placeholder="password" required>
-    <button>sign in</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/style.css"/>
+    <title>Post your self</title>
+</head>
+<body>
+    <main class="container">
+        <section class="header">
+            <h1 class="head"><span class=" far fa-grin-beam-sweat"></span>Post your mind</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut temporibus quisquam ex laborum incidunt ab quia necessitatibus, quam iste totam tempore neque optio similique. Minus rerum quis nesciunt nobis aliquam!</p>
+            <div class="welcome">
+                <div class="login">
+                   <p>Are you a member ? <span class="far fa-grin-hearts"></span></p>
+                   <a href="/public/html/login.html"  class="btnlogin" >login</a>
+                </div>
+                <div class="signup">
+                    <p>Not a member yet ? <span class="far fa-frown"></span></p>
+                    <a href="/public/html/signup.html" class="btnsignup" >signup</a>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <form action="/login" method="POST">
+                <label for="email">
+                    <input placeholder="email" id="email" type="text" name="email" class="form-item">
+                </label>
+                <label for="password">
+                    <input placeholder="password" id="password" type="password" name="password" class="form-item"></input>
+                </label>
+                <button id="login" class="form-item">login</button>
+            </form>         
+        </section>
+    </main>
+    <footer>
+        <address>
+            copyright &copy; 2018 | Othman, Ali, Salwa & Asala
+        </address>
+    </footer>
+</body>
+</html>
