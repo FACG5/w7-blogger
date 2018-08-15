@@ -7,7 +7,6 @@ const {
 const router = (req, res) => {
   const endpoint = req.url;
   const { method } = req;
-  // console.log(endpoint);
   // console.log(method);
   if (endpoint === '/') {
     handleHomePage(req, res);
